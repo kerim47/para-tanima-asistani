@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gizlilik Politikası - Para Tanıma Asistanı</title>
+    <meta name="description" content="Para Tanıma Asistanı uygulaması gizlilik politikası ve kişisel veri işleme prensipleri">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(255,255,255,0.1)"><polygon points="0,0 1000,0 1000,80 0,100"/></svg>');
+            background-size: cover;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .content {
+            padding: 60px 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            padding: 30px;
+            background: rgba(248, 250, 252, 0.8);
+            border-radius: 15px;
+            border-left: 5px solid #3498db;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(52, 152, 219, 0.1);
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 25px 0 15px;
+        }
+
+        .icon {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .section ul {
+            margin: 20px 0;
+            padding-left: 0;
+        }
+
+        .section li {
+            list-style: none;
+            position: relative;
+            padding: 12px 0 12px 35px;
+            margin-bottom: 8px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            padding-left: 45px;
+            transition: background 0.3s ease;
+        }
+
+        .section li:hover {
+            background: rgba(52, 152, 219, 0.05);
+        }
+
+        .section li::before {
+            content: "✓";
+            position: absolute;
+            left: 15px;
+            top: 12px;
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 1px solid rgba(52, 152, 219, 0.2);
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .contact-info a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 25px;
+            border-radius: 25px;
+            display: inline-block;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.95rem;
+        }
+
+        .last-updated {
+            display: inline-block;
+            background: rgba(52, 152, 219, 0.1);
+            color: #3498db;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .content {
+                padding: 40px 20px;
+            }
+            
+            .section {
+                padding: 20px;
+                margin-bottom: 30px;
+            }
+            
+            .section h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .data-table th, .data-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .data-table th {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            font-weight: 600;
+        }
+
+        .data-table tr:hover {
+            background: rgba(52, 152, 219, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Gizlilik Politikası</h1>
+            <p>Para Tanıma Asistanı - Kişisel Verilerinizin Korunması ve İşlenmesi Politikası</p>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2><span class="icon">1</span>Genel Bilgiler</h2>
+                <p>Para Tanıma Asistanı uygulaması, görme engelli ve düşük görme kapasitesine sahip bireylerin banknot tanıma süreçlerinde bağımsızlıklarını artırmak amacıyla geliştirilmiş yardımcı teknoloji uygulamasıdır.</p>
+                
+                <div class="highlight">
+                    <strong>Önemli:</strong> Bu uygulama, kullanıcı gizliliğini en üst düzeyde koruma prensibiyle tasarlanmış olup, hiçbir kişisel veri toplamaz, saklamaz veya üçüncü taraflarla paylaşmaz.
+                </div>
+
+                <p>Bu Gizlilik Politikası, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) ve ilgili mevzuat çerçevesinde hazırlanmıştır.</p>
+            </div>
+
+            <div class="section">
+                <h2><span class="icon">2</span>Veri Toplama ve İşleme</h2>
+                
+                <h3>2.1 Toplanan Veriler</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Veri Türü</th>
+                            <th>Kullanım Amacı</th>
+                            <th>İşleme Yeri</th>
+                            <th>Saklama Durumu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Kamera Görüntüsü</td>
+                            <td>Banknot Tanıma</td>
+                            <td>Cihaz İçi</td>
+                            <td>Saklanmaz</td>
+                        </tr>
+                        <tr>
+                            <td>Ses Çıkışı</td>
+                            <td>Sonuç Bildirimi</td>
+                            <td>Cihaz İçi</td>
+                            <td>Saklanmaz</td>
+                        </tr>
+                        <tr>
+                            <td>Titreşim</td>
+                            <td>Haptik Geri Bildirim</td>
+                            <td>Cihaz İçi</td>
+                            <td>Saklanmaz</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>2.2 İşleme Prensipleri</h3>
+                <ul>
+                    <li>Tüm görüntü işleme süreçleri cihaz üzerinde (on-device) gerçekleştirilir</li>
+                    <li>Hiçbir görüntü verisi cihazın belleğinde kalıcı olarak saklanmaz</li>
+                    <li>Uygulama internet bağlantısı gerektirmez ve çevrimdışı çalışır</li>
+                    <li>Kullanıcı kimlik bilgileri, konum verileri toplanmaz</li>
+                    <li>Üçüncü taraf analitik veya reklam hizmetleri entegre edilmemiştir</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><span class="icon">3</span>Teknik Güvenlik Önlemleri</h2>
+                
+                <h3>3.1 Veri Güvenliği</h3>
+                <ul>
+                    <li>Görüntü işleme algoritmaları tamamen yerel olarak çalışır</li>
+                    <li>Temporary buffer'lar işlem sonrası otomatik olarak temizlenir</li>
+                    <li>Uygulama sandbox ortamında çalışarak sistem güvenliğini korur</li>
+                    <li>Minimum sistem izinleri (sadece kamera erişimi) talep edilir</li>
+                </ul>
+
+                <h3>3.2 Erişim Kontrolü</h3>
+                <ul>
+                    <li>Kamera erişimi kullanıcı onayı ile sağlanır</li>
+                    <li>Uygulama kapatıldığında tüm aktif süreçler sonlandırılır</li>
+                    <li>Background işlem yapılmaz</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><span class="icon">4</span>Kullanıcı Hakları</h2>
+                
+                <p>KVKK kapsamında kullanıcılarımızın aşağıdaki hakları bulunmaktadır:</p>
+                
+                <ul>
+                    <li>Kişisel verilerinin işlenip işlenmediğini öğrenme hakkı</li>
+                    <li>Kişisel verilerin işleme amaçlarını ve amacına uygun kullanılıp kullanılmadığını öğrenme hakkı</li>
+                    <li>Yurt içinde veya yurt dışında kişisel verilerin aktarıldığı üçüncü kişileri bilme hakkı</li>
+                    <li>Kişisel verilerin eksik veya yanlış işlenmiş olması hâlinde bunların düzeltilmesini isteme hakkı</li>
+                </ul>
+
+                <div class="highlight">
+                    <strong>Not:</strong> Uygulamamız herhangi bir kişisel veri toplamadığından, yukarıdaki hakların çoğu doğrudan uygulanabilir değildir. Ancak her türlü soru ve talebiniz için bizimle iletişime geçebilirsiniz.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><span class="icon">5</span>Çocukların Gizliliği</h2>
+                
+                <p>Uygulamamız 13 yaş altı çocuklara yönelik özel olarak tasarlanmamıştır. Ancak:</p>
+                
+                <ul>
+                    <li>Herhangi bir yaş sınırlaması bulunmamaktadır</li>
+                    <li>Çocuklar dahil hiçbir kullanıcıdan kişisel bilgi toplanmaz</li>
+                    <li>Çocuk güvenliği için uygun içerik politikaları uygulanır</li>
+                    <li>Ebeveyn/vasi kontrolü gerektiren herhangi bir özellik bulunmaz</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><span class="icon">6</span>Üçüncü Taraf Hizmetler</h2>
+                
+                <p>Para Tanıma Asistanı uygulaması tamamen bağımsız çalışır ve aşağıdaki özelliklere sahiptir:</p>
+                
+                <ul>
+                    <li>Hiçbir üçüncü taraf SDK veya kütüphane kullanılmaz</li>
+                    <li>Reklam ağları entegre edilmemiştir</li>
+                    <li>Analitik hizmetler (Google Analytics vb.) bulunmaz</li>
+                    <li>Sosyal medya entegrasyonu yoktur</li>
+                    <li>Cloud servislerine veri gönderimi yapılmaz</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><span class="icon">7</span>Veri Saklama ve Silme</h2>
+                
+                <h3>7.1 Saklama Politikası</h3>
+                <ul>
+                    <li>Uygulama hiçbir veriyi kalıcı olarak saklamaz</li>
+                    <li>Geçici işlem verileri RAM'de tutulur ve işlem sonrası silinir</li>
+                    <li>Cache mekanizması kullanılmaz</li>
+                    <li>Uygulama kaldırıldığında hiçbir veri geriye kalmaz</li>
+                </ul>
+
+                <h3>7.2 Otomatik Silme</h3>
+                <ul>
+                    <li>Kamera çekimi sonrası görüntü verisi anında silinir</li>
+                    <li>Tanıma işlemi tamamlandıktan sonra tüm geçici veriler temizlenir</li>
+                    <li>Uygulama arka plana geçtiğinde aktif süreçler sonlandırılır</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><span class="icon">8</span>Güncelleme ve Değişiklikler</h2>
+                
+                <p>Bu Gizlilik Politikası gerektiğinde güncellenebilir. Önemli değişiklikler:</p>
+                
+                <ul>
+                    <li>Uygulama mağazası sayfasında duyurulur</li>
+                    <li>Bu web sayfasında güncel haliyle yayınlanır</li>
+                    <li>Kullanıcılar uygulama güncellemesi ile bilgilendirilir</li>
+                    <li>Değişiklikler derhal yürürlüğe girer</li>
+                </ul>
+
+                <div class="highlight">
+                    <strong>Tavsiye:</strong> Bu sayfayı düzenli olarak ziyaret ederek güncel politikalarımızdan haberdar olabilirsiniz.
+                </div>
+            </div>
+
+            <div class="contact-info">
+                <h3>İletişim Bilgileri</h3>
+                <p>Gizlilik politikamız hakkında sorularınız veya talepleriniz için:</p>
+                <a href="mailto:kerimakan77@gmail.com">kerimakan77@gmail.com</a>
+                <a href="mailto:kerimakan77@gmail.com">Destek</a>
+                <p style="margin-top: 20px; opacity: 0.9;">
+                    <strong>Veri Sorumlusu:</strong> Abdulkerim AKAN<br>
+                </p>
+            </div>
+
+            <div class="last-updated">
+                Son Güncelleme: 28 Ağustos 2025
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 Para Tanıma Asistanı. Tüm hakları saklıdır.</p>
+            <p>Bu uygulama, erişilebilir teknoloji geliştirme prensipleriyle tasarlanmıştır.</p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
